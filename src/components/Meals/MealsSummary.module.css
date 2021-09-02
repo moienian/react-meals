@@ -1,0 +1,15 @@
+.summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: aliceblue;
+  width: 40rem;
+  text-align: center;
+  line-height: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-10rem);
+}
