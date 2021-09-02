@@ -1,5 +1,6 @@
 import Cart from "../Cart/Cart";
-import MealItem from "./MealItem";
+import MealItem from "./MealItem/MealItem";
+import classes from "./AvailableMeals.module.css";
 
 const DUMMY_MEALS = [
   {
@@ -28,12 +29,13 @@ const DUMMY_MEALS = [
   },
 ];
 function AvailableMeals() {
+  const mealsList = DUMMY_MEALS.map((meal) => <MealItem meal={meal} />);
   return (
-    <Cart>
-      {DUMMY_MEALS.map((meal) => (
-        <MealItem meal={meal} />
-      ))}
-    </Cart>
+    <section className={classes.meals}>
+      <Cart>
+        <ul>{mealsList}</ul>
+      </Cart>
+    </section>
   );
 }
 
