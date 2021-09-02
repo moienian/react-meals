@@ -14,9 +14,17 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
+.main-image {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
 .main-image img {
   width: 110%;
   height: 100%;
   object-fit: cover;
   transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem);
+  overflow: hidden;
 }
