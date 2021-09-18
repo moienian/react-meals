@@ -32,6 +32,7 @@ const DUMMY_MEALS = [
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [httpError, setHttpError] = useState();
 
   useEffect(() => {
     const fetchMeals = async () => {
@@ -39,6 +40,10 @@ const AvailableMeals = () => {
       const response = await fetch(
         "https://react-meals-9e6c9-default-rtdb.europe-west1.firebasedatabase.app/meals.json"
       );
+
+      if (!response.ok) {
+        throw new Error("Something went wrong!");
+      }
       const data = await response.json();
 
       const loadedMeals = [];
@@ -54,13 +59,24 @@ const AvailableMeals = () => {
       setIsLoading(false);
     };
 
-    fetchMeals();
+    fetchMeals().catch((error) => {
+      setIsLoading(false);
+      setHttpError(error.message);
+    });
   }, []);
 
   if (isLoading) {
     return (
       <section className={classes.loading}>
         <p>Loading...</p>
+      </section>
+    );
+  }
+
+  if (httpError) {
+    return (
+      <section className={classes.error}>
+        <p>{httpError}</p>
       </section>
     );
   }
