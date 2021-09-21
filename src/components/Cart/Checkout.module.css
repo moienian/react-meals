@@ -53,3 +53,13 @@
 .actions .submit:active {
   background-color: #7a2706;
 }
+
+.invalid p {
+  margin-top: 0;
+  color: #ca3e51;
+}
+
+.invalid input {
+  border-color: #aa0b20;
+  background-color: #ffeff1;
+}
